@@ -1,0 +1,37 @@
+{
+    "version": 1,
+    "author": "Pedro Henrique Miranda",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "board-pi-pico-w",
+        "id": "pico",
+        "top": -60.85,
+        "left": -236.45,
+        "attrs": { "builder": "pico-sdk" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 72,
+        "left": -288.55,
+        "rotate": 90,
+        "attrs": { "value": "1000" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": -22.8,
+        "left": -274.6,
+        "attrs": { "color": "blue" }
+      }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "pico:GND.4", "r1:2", "black", [ "h0" ] ],
+      [ "pico:GP12", "led1:A", "green", [ "h0" ] ],
+      [ "led1:C", "r1:1", "green", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }
